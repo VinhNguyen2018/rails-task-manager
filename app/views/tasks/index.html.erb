@@ -1,0 +1,17 @@
+<h1>Task Manager</h1>
+
+<h2>Here is the list of the tasks</h2>
+<ol>
+<% @tasks.each do |task| %>
+  <li><%= check_box_tag 'completed', 'true', task.completed %> <%= link_to task.title, task_path(task) %>
+<%= link_to task_path(task),method: :delete, data: { confirm: "Are you sure?" } do %>
+  <i class="fas fa-dumpster"></i>
+<% end %>
+  </li>
+  <% end %>
+</ol>
+
+<p><%= link_to "Add a new task", new_path %></p>
+
+
+
